@@ -1,94 +1,196 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.card');
-  const companyBoxes = document.querySelectorAll('.company-box');
-  const expertiseBoxes = document.querySelectorAll('.expertise-box');
-  const chatbotToggle = document.querySelector('.chatbot-toggle');
-  const chatbot = document.querySelector('.chatbot');
-  const chatInput = document.querySelector('.chatbot-input');
-  const miniMan = document.querySelector('.mini-man');
-  const progressBar = document.querySelector('.progress');
-  const profileSpotlight = document.querySelector('.profile-spotlight');
-  let milestones = 0;
-  const maxMilestones = 10;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f0f8ff;
+  color: #222;
+  transition: background-color 0.3s, color 0.3s;
+}
 
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      if (!card.classList.contains('active')) {
-        card.classList.add('active');
-        updateMiniMan(card);
-        updateProgress();
-      }
-    });
-  });
+header {
+  background-color: #4682b4;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
 
-  companyBoxes.forEach(box => {
-    box.addEventListener('click', () => {
-      if (!box.classList.contains('active')) {
-        box.classList.add('active');
-        updateMiniMan(box);
-        updateProgress();
-      }
-    });
-  });
+header nav a {
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-  expertiseBoxes.forEach(box => {
-    box.addEventListener('click', () => {
-      if (!box.classList.contains('active')) {
-        box.classList.add('active');
-        updateMiniMan(box);
-        updateProgress();
-      }
-    });
-  });
+.resume-download {
+  display: inline-block;
+  margin-top: 10px;
+  background: #ffd700;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: #000;
+  text-decoration: none;
+}
 
-  chatbotToggle.addEventListener('click', () => {
-    chatbot.style.display = chatbot.style.display === 'none' ? 'flex' : 'none';
-    chatbotToggle.textContent = chatbot.style.display === 'none' ? '✖' : '💬';
-  });
+section {
+  padding: 20px;
+}
 
-  chatInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter' && chatInput.value.trim()) {
-      addMessage('user', chatInput.value.trim());
-      setTimeout(() => addMessage('bot', getBotResponse(chatInput.value.trim())), 500);
-      chatInput.value = '';
-    }
-  });
+.card, .company-box, .expertise-box {
+  background: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-left: 5px solid #4682b4;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
 
-  profileSpotlight.addEventListener('click', () => {
-    const confetti = document.createElement('div');
-    confetti.className = 'confetti';
-    document.body.appendChild(confetti);
-    setTimeout(() => confetti.remove(), 1000);
-    profileSpotlight.classList.add('active');
-    updateProgress();
-  });
+.active {
+  background-color: #e0fff0;
+}
 
-  function updateMiniMan(element) {
-    const rect = element.getBoundingClientRect();
-    miniMan.style.left = (rect.left + rect.width / 2) + 'px';
-    miniMan.style.top = (rect.top + rect.height / 2) + 'px';
+footer {
+  background: #f4f4f4;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.theme-toggle {
+  margin-top: 10px;
+  padding: 6px 10px;
+  border: none;
+  background-color: #4682b4;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Chatbot */
+.chatbot-toggle {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: #333;
+  color: white;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 90%;
+  max-width: 320px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.chatbot-messages {
+  height: 150px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.chatbot-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.message.user {
+  text-align: right;
+  font-weight: bold;
+}
+
+.message.bot {
+  text-align: left;
+  color: #007;
+}
+
+.typing-indicator {
+  font-size: 12px;
+  color: gray;
+}
+
+.progress-container {
+  width: 100%;
+  height: 10px;
+  background: #e0e0e0;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.progress {
+  height: 10px;
+  background: #4caf50;
+  width: 0%;
+  border-radius: 5px;
+}
+
+.mini-man {
+  position: absolute;
+  transition: all 0.4s ease;
+}
+
+/* Dark mode */
+body.dark {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+body.dark header {
+  background-color: #222;
+}
+
+body.dark .card,
+body.dark .company-box,
+body.dark .expertise-box,
+body.dark .chatbot,
+body.dark footer {
+  background-color: #2e2e2e;
+  color: #fff;
+  border-color: #444;
+}
+
+body.dark .theme-toggle {
+  background-color: #ffd700;
+  color: black;
+}
+
+/* Ghibli-style animation */
+section, header, footer {
+  animation: fadeInSlide 0.8s ease-out;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-
-  function updateProgress() {
-    milestones = document.querySelectorAll('.active').length;
-    progressBar.style.width = (milestones / maxMilestones * 100) + '%';
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  function addMessage(type, text) {
-    const messages = document.querySelector('.chatbot-messages');
-    const message = document.createElement('div');
-    message.className = `message ${type}`;
-    message.textContent = text;
-    messages.appendChild(message);
-    messages.scrollTop = messages.scrollHeight;
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 24px;
   }
-
-  function getBotResponse(query) {
-    const responses = {
-      "Tell me about Shankar's career journey": "Shankar Raman has 15 years of experience in tech recruitment...",
-      "Describe Shankar's recruiting expertise": "Expert in Gen AI, leadership hiring, DEI projects...",
-      "What are Shankar's special projects?": "Diversity hiring, BounceBack at Target, Buddy Program...",
-    };
-    return responses[query] || "Try asking about Shankar’s journey, projects, or expertise.";
+  header nav a {
+    display: block;
+    margin: 5px 0;
   }
-});
+}
