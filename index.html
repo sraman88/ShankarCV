@@ -1,139 +1,157 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shankar Raman | Interactive CV</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <h1>Shankar Raman</h1>
-    <p>Talent Acquisition Leader | Tech Hiring Specialist | GenAI Advocate</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#expertise">Expertise</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a href="ShankarRaman_Resume.pdf" class="resume-download" download>⬇ Download Resume</a>
-  </header>
+<!-- Chatbot Toggle with Avatar -->
+<div class="chatbot-toggle">
+  <img src="chat-avatar.png" alt="Chatbot" class="chatbot-avatar" />
+  <div class="chat-label">💬 Chat</div>
+</div>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>With 15+ years in tech recruitment across OpenText, Target, and WNS, I specialize in leadership hiring, team building, and scaling organizations with a DEI lens.</p>
-  </section>
+<!-- Chatbot Window -->
+<div class="chatbot">
+  <div class="chatbot-messages"></div>
+  <div class="typing-indicator" style="display: none;">Typing...</div>
+  <input type="text" class="chatbot-input" placeholder="Type your question..." />
+</div>
 
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="card active">
-      <h3>OpenText (Mar 2023 - Present)</h3>
-      <ul>
-        <li>Leading Tech, Semi-tech, Finance, Marketing & HR recruiting for India.</li>
-        <li>Reduced time-to-fill by 20%, recruited leadership roles, and managed a 12-member team.</li>
-        <li>Delivered 30% increase in diversity hiring, managed RPO operations, and achieved 95% candidate satisfaction.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Out of the Blue.Ai (Dec 2022 – Feb 2023)</h3>
-      <ul>
-        <li>Set up TA & HR functions in a fast-paced startup.</li>
-        <li>Led branding, employee engagement, and worked closely with co-founders.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Browserstack (Apr 2022 – Dec 2022)</h3>
-      <ul>
-        <li>Led Product, Design, and Engineering hiring, managing end-to-end recruitment.</li>
-        <li>Handled diversity projects, candidate experience, and TA learning initiatives.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Target (Jan 2019 – Apr 2022)</h3>
-      <ul>
-        <li>Led tech hiring, talent pipelines, and strategic recruiting projects.</li>
-        <li>Hired for AI, ML, Java, Golang, Data, and Architect roles.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>WNS (Jun 2014 – Dec 2018)</h3>
-      <ul>
-        <li>Led TA for Research & Analytics; built teams for tech, analytics, and financial services.</li>
-        <li>Managed a team of 6 and built campus partnerships.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Recruise India (Sep 2010 – Mar 2014)</h3>
-      <ul>
-        <li>Handled niche leadership hiring for IT and consulting firms.</li>
-        <li>Led a 6-member team and delivered client-specific talent reports.</li>
-      </ul>
-    </div>
-  </section>
+<style>
+.chatbot-toggle {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  z-index: 1000;
+}
 
-  <section id="expertise">
-    <h2>Expertise</h2>
-    <div class="expertise-box" data-target="genai">GenAI Recruiting</div>
-    <div class="expertise-detail" data-target="genai" style="display:none">
-      <ul>
-        <li>Using AI tools to automate sourcing, screening, and engagement.</li>
-        <li>Trained recruiters on GenAI usage for better quality-of-hire.</li>
-        <li>Experimented with ChatGPT prompts, Phenom AI, and coding bots.</li>
-      </ul>
-    </div>
+.chatbot-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
 
-    <div class="expertise-box" data-target="leadership">Leadership Hiring</div>
-    <div class="expertise-detail" data-target="leadership" style="display:none">
-      <ul>
-        <li>Hired VPs, Directors, and Senior Managers across tech, product, and data roles.</li>
-        <li>Worked closely with CXOs to build leadership pipelines.</li>
-        <li>Delivered 95% success rate in leadership hiring across firms.</li>
-      </ul>
-    </div>
+.chatbot-avatar:hover {
+  transform: scale(1.05);
+}
 
-    <div class="expertise-box" data-target="diversity">Diversity Programs</div>
-    <div class="expertise-detail" data-target="diversity" style="display:none">
-      <ul>
-        <li>Built diversity dashboards and tracked hiring metrics.</li>
-        <li>Achieved 40% women representation in key teams at WNS.</li>
-        <li>Ran returnship and allyship programs in tech companies.</li>
-      </ul>
-    </div>
-  </section>
+.chat-label {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2c3e50;
+  color: #ecf0f1;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li>BounceBack: Career restart program at Target</li>
-      <li>Buddy Program: BrowserStack new joiner success</li>
-      <li>Diversity@WNS: 40% gender diversity achieved</li>
-    </ul>
-  </section>
+.chatbot {
+  position: fixed;
+  bottom: 120px;
+  right: 25px;
+  width: 320px;
+  max-height: 420px;
+  background: #2c3e50;
+  color: #ecf0f1;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  display: none;
+  flex-direction: column;
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: 999;
+  animation: popUp 0.3s ease-out;
+}
 
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>📧 Email: fortunate.gui@gmail.com</p>
-    <p>🔗 <a href="https://www.linkedin.com/in/shankar111" target="_blank">LinkedIn</a></p>
-    <p>🐦 <a href="https://twitter.com/shankar_raman" target="_blank">X (Twitter)</a></p>
-    <p>💬 <a href="https://wa.me/919620572345?text=Hi%20Shankar%2C%20I'm%20interested%20in%20your%20profile!" target="_blank">Message me on WhatsApp</a></p>
-  </section>
+@keyframes popUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
-  <footer>
-    <p>&copy; 2025 Shankar Raman. Built with 💡 and a bit of JavaScript.</p>
-    <button class="theme-toggle">🌓 Toggle Theme</button>
-  </footer>
+.chatbot-messages {
+  padding: 10px;
+  flex-grow: 1;
+  overflow-y: auto;
+  font-size: 14px;
+}
 
-  <div class="chatbot-toggle">💬</div>
-  <div class="chatbot" style="display:none;">
-    <div class="chatbot-messages"></div>
-    <div class="typing-indicator" style="display:none;">Typing...</div>
-    <input type="text" class="chatbot-input" placeholder="Ask about my work..." />
-  </div>
+.message.user {
+  text-align: right;
+  color: #1abc9c;
+  margin-bottom: 5px;
+}
 
-  <div class="mini-man">🧍‍♂️</div>
-  <div class="progress-container"><div class="progress"></div></div>
+.message.bot {
+  text-align: left;
+  color: #f1c40f;
+  margin-bottom: 5px;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.chatbot-input {
+  padding: 10px;
+  border: none;
+  background: #34495e;
+  color: white;
+  font-size: 14px;
+  border-top: 1px solid #7f8c8d;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const chatbotToggle = document.querySelector('.chatbot-toggle');
+  const chatbot = document.querySelector('.chatbot');
+  const chatInput = document.querySelector('.chatbot-input');
+  const messages = document.querySelector('.chatbot-messages');
+  const typingIndicator = document.querySelector('.typing-indicator');
+
+  chatbotToggle.addEventListener('click', () => {
+    chatbot.style.display = chatbot.style.display === 'none' || chatbot.style.display === '' ? 'flex' : 'none';
+  });
+
+  chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && chatInput.value.trim()) {
+      const userMsg = chatInput.value.trim();
+      addMessage('user', userMsg);
+      chatInput.value = '';
+      typingIndicator.style.display = 'flex';
+
+      setTimeout(() => {
+        const botReply = getBotResponse(userMsg);
+        addMessage('bot', botReply);
+        typingIndicator.style.display = 'none';
+      }, 700);
+    }
+  });
+
+  function addMessage(type, text) {
+    const message = document.createElement('div');
+    message.className = `message ${type}`;
+    message.textContent = text;
+    messages.appendChild(message);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function getBotResponse(query) {
+    const responses = {
+      "hello": "Hi there! I'm here to help you learn about Shankar.",
+      "who is shankar": "Shankar Raman is a TA pro with 15 years of experience, currently at OpenText.",
+      "genai": "Shankar integrates GenAI into hiring—automating screening, reducing time-to-hire.",
+      "leadership hiring": "He led leadership hiring at Target and OpenText. Ask me more!",
+      "awards": "He received a $1,000 award for accelerating hiring by 25% at OpenText.",
+      "default": "Try asking: 'Who is Shankar?', 'GenAI expertise', or 'Awards'."
+    };
+
+    query = query.toLowerCase();
+    return responses[query] || responses["default"];
+  }
+});
+</script>
