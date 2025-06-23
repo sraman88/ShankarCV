@@ -1,135 +1,213 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
+/* Reset & Base */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
   background: #f9f9f9;
-  color: #333;
+  color: #222;
+  padding-bottom: 100px;
+  line-height: 1.6;
+}
+a {
+  text-decoration: none;
+  color: #0066cc;
 }
 
+/* Navigation */
+.navbar {
+  background: #1e1e2f;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.navbar a {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Profile Section */
 .profile {
   text-align: center;
-  padding: 30px 20px;
+  padding: 2rem 1rem;
   position: relative;
 }
-
 .chatbot-avatar {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  border: 4px solid #4CAF50;
-  object-fit: cover;
+  cursor: pointer;
+  border: 3px solid #4CAF50;
 }
-
+.intro h1 {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+.intro p {
+  color: #444;
+}
 .toy-image {
   position: absolute;
   right: 10px;
-  bottom: 10px;
-  width: 150px;
+  bottom: 0;
+  width: 160px;
   opacity: 0.25;
   z-index: 0;
 }
 
-.intro h1 {
-  margin: 10px 0 5px;
-  font-size: 28px;
+/* Section Headers */
+section {
+  padding: 2rem 1rem;
+}
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+  border-left: 5px solid #00bcd4;
+  padding-left: 0.5rem;
 }
 
-.intro p {
-  font-size: 16px;
-  color: #777;
+/* Ribbons */
+.ribbon {
+  margin-bottom: 1rem;
 }
-
-.section {
-  margin: 20px auto;
-  max-width: 700px;
-  background: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.05);
-}
-
 .ribbon-toggle {
+  background: #00bcd4;
+  color: #fff;
+  padding: 1rem;
   width: 100%;
-  background: #4CAF50;
-  color: white;
-  font-size: 18px;
   border: none;
-  padding: 12px;
-  text-align: left;
+  font-size: 1rem;
   cursor: pointer;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  text-align: left;
   transition: background 0.3s;
 }
-
 .ribbon-toggle:hover {
-  background: #45a049;
+  background: #008c9e;
 }
-
 .ribbon-content {
   display: none;
-  padding: 10px 15px;
-  background: #f1f1f1;
-  border-left: 4px solid #4CAF50;
-  border-radius: 5px;
-  margin-top: 5px;
+  background: #e0f7fa;
+  padding: 1rem;
+  border-left: 3px solid #00acc1;
 }
-
-.section.active .ribbon-content {
+.ribbon.active .ribbon-content {
   display: block;
 }
 
-.testimonials p {
+/* Testimonials */
+.testimonials-container {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+.testimonial {
+  background: #fff;
+  border-left: 5px solid #4CAF50;
+  padding: 1rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   font-style: italic;
-  margin-bottom: 12px;
+  animation: fadeInUp 0.8s ease forwards;
+}
+.testimonial strong {
+  display: block;
+  margin-top: 0.5rem;
+}
+.testimonial small {
+  color: #555;
 }
 
-/* Chatbot floating icon */
-.chatbot-icon {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #4CAF50;
-  color: white;
-  font-size: 1.8rem;
-  padding: 10px 12px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 2000;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+/* Contact */
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  background: #333;
+  color: #fff;
+  transition: 0.3s ease;
+}
+.btn:hover {
+  background: #555;
+}
+.btn.whatsapp {
+  background: #25D366;
+}
+.btn.download {
+  background: #007BFF;
+}
+.btn.email {
+  background: #555;
 }
 
-/* Chatbot box */
+/* Chatbot */
 .chatbot {
   position: fixed;
-  bottom: 70px;
-  right: 20px;
-  width: 320px;
-  background: #2e2e2e;
+  bottom: 100px;
+  right: 30px;
+  width: 300px;
+  background: #333;
   color: white;
   border-radius: 10px;
   overflow: hidden;
   display: none;
   flex-direction: column;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
-
 .chatbot-messages {
-  height: 250px;
+  max-height: 300px;
   overflow-y: auto;
-  padding: 10px;
+  padding: 1rem;
 }
-
 .chatbot-input {
-  padding: 10px;
   border: none;
-  outline: none;
-  font-size: 14px;
+  padding: 1rem;
+  font-size: 1rem;
   width: 100%;
 }
-
 .typing-indicator {
-  padding: 5px 10px;
-  font-style: italic;
-  color: #ccc;
+  padding: 0.5rem;
+  background: #444;
+  font-size: 0.85rem;
+  display: none;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .toy-image {
+    display: none;
+  }
+  .contact-actions {
+    flex-direction: column;
+  }
+  .chatbot {
+    width: 90%;
+    right: 5%;
+  }
 }
