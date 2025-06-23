@@ -1,3 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shankar Raman | Interactive CV</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Shankar Raman</h1>
+    <p>Talent Acquisition Leader | Tech Hiring Specialist | GenAI Advocate</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="ShankarRaman_Resume.pdf" class="resume-download" download>⬇ Download Resume</a>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>With 15+ years in tech recruitment across OpenText, Target, and WNS, I specialize in leadership hiring, team building, and scaling organizations with a DEI lens.</p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="card active">OpenText – 650+ hires</div>
+    <div class="company-box" data-target="target">Target – DEI & BounceBack Program</div>
+    <div class="company-box" data-target="browserstack">BrowserStack – Buddy Program</div>
+  </section>
+
+  <section id="expertise">
+    <h2>Expertise</h2>
+    <div class="expertise-box" data-target="genai">GenAI Recruiting</div>
+    <div class="expertise-box" data-target="leadership">Leadership Hiring</div>
+    <div class="expertise-box" data-target="diversity">Diversity Programs</div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li>BounceBack: Career restart program at Target</li>
+      <li>Buddy Program: BrowserStack new joiner success</li>
+      <li>Diversity@WNS: 40% gender diversity achieved</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>📧 Email: shankar@example.com</p>
+    <p>🔗 <a href="https://www.linkedin.com/in/shankar111" target="_blank">LinkedIn</a></p>
+    <p>🐦 <a href="https://twitter.com/shankar_raman" target="_blank">X (Twitter)</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Shankar Raman. Built with 💡 and a bit of JavaScript.</p>
+    <button class="theme-toggle">🌓 Toggle Theme</button>
+  </footer>
+
+  <div class="chatbot-toggle">💬</div>
+  <div class="chatbot" style="display:none;">
+    <div class="chatbot-messages"></div>
+    <div class="typing-indicator" style="display:none;">Typing...</div>
+    <input type="text" class="chatbot-input" placeholder="Ask about my work..." />
+  </div>
+
+  <div class="mini-man">🧍‍♂️</div>
+  <div class="progress-container"><div class="progress"></div></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
 <!-- Chatbot Toggle with Avatar -->
 <div class="chatbot-toggle">
   <img src="chat-avatar.png" alt="Chatbot" class="chatbot-avatar" />
