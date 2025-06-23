@@ -1,60 +1,56 @@
+// Wait for DOM to load
 document.addEventListener('DOMContentLoaded', () => {
-  const ribbons = document.querySelectorAll('.ribbon-button');
-  const chatbotToggle = document.querySelector('.chatbot-toggle');
-  const chatbot = document.querySelector('.chatbot');
-  const chatInput = document.querySelector('.chatbot-input');
-  const messagesContainer = document.querySelector('.chatbot-messages');
+  const ribbons = document.querySelectorAll('.ribbon-toggle');
+  const chatbotToggle = document.getElementById('chatbot-toggle');
+  const chatbot = document.getElementById('chatbot');
+  const input = document.querySelector('.chatbot-input');
+  const messages = document.querySelector('.chatbot-messages');
+  const typingIndicator = document.querySelector('.typing-indicator');
 
-  ribbons.forEach(ribbon => {
-    ribbon.addEventListener('click', () => {
-      const targetId = ribbon.getAttribute('data-target');
-      const detail = document.getElementById(targetId);
-      if (detail.style.display === 'block') {
-        detail.style.display = 'none';
-      } else {
-        detail.style.display = 'block';
-      }
+  // Toggle ribbon content
+  ribbons.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const content = toggle.nextElementSibling;
+      const ribbon = toggle.parentElement;
+      ribbon.classList.toggle('active');
     });
   });
 
+  // Show/hide chatbot on avatar click
   chatbotToggle.addEventListener('click', () => {
-    chatbot.style.display = chatbot.style.display === 'none' ? 'flex' : 'none';
+    chatbot.style.display = chatbot.style.display === 'flex' ? 'none' : 'flex';
   });
 
-  chatInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter' && chatInput.value.trim()) {
-      addMessage('user', chatInput.value.trim());
-      setTimeout(() => addMessage('bot', getBotResponse(chatInput.value.trim())), 500);
-      chatInput.value = '';
+  // Chatbot basic responses
+  input.addEventListener('keypress', e => {
+    if (e.key === 'Enter' && input.value.trim()) {
+      const userMsg = input.value.trim();
+      appendMessage('You', userMsg);
+      input.value = '';
+      typingIndicator.style.display = 'block';
+
+      setTimeout(() => {
+        const reply = getBotResponse(userMsg);
+        appendMessage('ShankarBot', reply);
+        typingIndicator.style.display = 'none';
+      }, 800);
     }
   });
 
-  function addMessage(type, text) {
-    const message = document.createElement('div');
-    message.className = `message ${type}`;
-    message.textContent = text;
-    messagesContainer.appendChild(message);
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  function appendMessage(sender, text) {
+    const div = document.createElement('div');
+    div.className = 'message';
+    div.innerHTML = `<strong>${sender}:</strong> ${text}`;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
   }
 
   function getBotResponse(query) {
-    const responses = {
-      'experience': 'Shankar has led hiring for over 1000 roles at OpenText, Target and more.',
-      'expertise': 'Leadership hiring, GenAI sourcing, team management, diversity hiring, and mentoring 9-box successors.',
-      'awards': 'Shankar received a $1000 award at Target for pipeline building.',
-      'contact': 'Email: fortunate.gui@gmail.com or message via WhatsApp.',
-    };
-    return responses[query.toLowerCase()] || "I'm learning more! Try keywords like 'experience', 'expertise', or 'contact'.";
+    const lower = query.toLowerCase();
+    if (lower.includes('experience')) return '15+ years in tech hiring, product, and leadership recruitment.';
+    if (lower.includes('genai')) return 'I implemented GenAI sourcing, reducing hiring time by 20%.';
+    if (lower.includes('leadership')) return 'I’ve hired directors, principal engineers, and built leadership pipelines.';
+    if (lower.includes('contact')) return 'You can email me at fortunate.gui@gmail.com or WhatsApp me using the button below.';
+    return 'I’m ShankarBot – ask me about my experience, GenAI work, or leadership hiring!';
   }
-
-  // CV download and WhatsApp click handlers
-  document.getElementById('download-cv').addEventListener('click', () => {
-    window.open('assets/ShankarCV.pdf', '_blank');
-  });
-
-  document.getElementById('whatsapp-btn').addEventListener('click', () => {
-    const message = encodeURIComponent('Hi Shankar, I visited your CV site and wanted to connect.');
-    const phone = '919620572345';
-    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
-  });
 });
