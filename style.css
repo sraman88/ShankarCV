@@ -1,208 +1,213 @@
-/* Reset */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   background: #f9f9f9;
-  color: #333;
-  padding: 20px;
+  color: #222;
+  padding-bottom: 100px;
+  line-height: 1.6;
+}
+a {
+  text-decoration: none;
+  color: #0066cc;
 }
 
-.header {
+/* Navigation */
+.navbar {
+  background: #1e1e2f;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.navbar a {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Profile Section */
+.profile {
   text-align: center;
-  margin-bottom: 30px;
+  padding: 2rem 1rem;
+  position: relative;
 }
-
-.header h1 {
-  font-size: 2.5em;
-  color: #004080;
-}
-
-.header p {
-  font-size: 1.2em;
-  margin-top: 5px;
-  color: #666;
-}
-
-#download-cv, #whatsapp-btn {
-  margin: 10px;
-  padding: 10px 20px;
-  border: none;
-  background: #0055aa;
-  color: white;
-  border-radius: 5px;
+.chatbot-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 1em;
+  border: 3px solid #4CAF50;
+}
+.intro h1 {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+.intro p {
+  color: #444;
+}
+.toy-image {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  width: 160px;
+  opacity: 0.25;
+  z-index: 0;
 }
 
-#download-cv:hover, #whatsapp-btn:hover {
-  background: #003366;
+/* Section Headers */
+section {
+  padding: 2rem 1rem;
+}
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+  border-left: 5px solid #00bcd4;
+  padding-left: 0.5rem;
 }
 
-.ribbon-button {
-  display: block;
+/* Ribbons */
+.ribbon {
+  margin-bottom: 1rem;
+}
+.ribbon-toggle {
+  background: #00bcd4;
+  color: #fff;
+  padding: 1rem;
   width: 100%;
-  background: linear-gradient(90deg, #004080, #007acc);
-  color: white;
   border: none;
-  padding: 15px;
-  margin: 10px 0;
-  font-size: 1em;
-  border-radius: 6px;
+  font-size: 1rem;
   cursor: pointer;
   text-align: left;
-  transition: all 0.3s ease;
+  transition: background 0.3s;
 }
-
-.ribbon-button:hover {
-  background: #003366;
+.ribbon-toggle:hover {
+  background: #008c9e;
 }
-
-.ribbon-detail {
+.ribbon-content {
   display: none;
-  background: #ffffff;
-  border-left: 4px solid #004080;
-  padding: 10px 20px;
-  margin-bottom: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  animation: fadeIn 0.5s ease forwards;
+  background: #e0f7fa;
+  padding: 1rem;
+  border-left: 3px solid #00acc1;
+}
+.ribbon.active .ribbon-content {
+  display: block;
 }
 
-.ribbon-detail ul {
-  padding-left: 20px;
-}
-
-.ribbon-detail li {
-  margin-bottom: 8px;
-  font-size: 0.95em;
-}
-
-.profile-spotlight {
-  background: #eee;
-  padding: 10px;
-  text-align: center;
-  margin: 20px 0;
-  border: 2px dashed #bbb;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
-.progress-container {
-  height: 8px;
-  background: #ddd;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.progress {
-  height: 8px;
-  width: 0;
-  background: #007acc;
-  border-radius: 10px;
-  transition: width 0.5s ease;
-}
-
-.mini-man {
-  font-size: 20px;
-  position: absolute;
-  transition: all 0.5s ease;
-}
-
+/* Testimonials */
 .testimonials-container {
-  margin-top: 40px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: 1rem;
+  padding: 1rem 0;
 }
-
-.testimonials-container h3 {
-  font-size: 1.5em;
-  color: #004080;
-  margin-bottom: 20px;
-}
-
 .testimonial {
-  margin-bottom: 20px;
+  background: #fff;
+  border-left: 5px solid #4CAF50;
+  padding: 1rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   font-style: italic;
-  animation: fadeInUp 0.6s ease forwards;
+  animation: fadeInUp 0.8s ease forwards;
 }
-
 .testimonial strong {
   display: block;
-  margin-top: 5px;
-  font-weight: bold;
+  margin-top: 0.5rem;
 }
-
 .testimonial small {
-  display: block;
   color: #555;
-  font-size: 0.85em;
 }
 
-.chatbot-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
+/* Contact */
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  background: #333;
+  color: #fff;
+  transition: 0.3s ease;
+}
+.btn:hover {
+  background: #555;
+}
+.btn.whatsapp {
+  background: #25D366;
+}
+.btn.download {
+  background: #007BFF;
+}
+.btn.email {
+  background: #555;
 }
 
-.avatar-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-
+/* Chatbot */
 .chatbot {
   position: fixed;
-  bottom: 80px;
-  right: 20px;
+  bottom: 100px;
+  right: 30px;
   width: 300px;
-  height: 400px;
-  background: #222;
-  color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
+  background: #333;
+  color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  display: none;
   flex-direction: column;
-  padding: 10px;
 }
-
 .chatbot-messages {
-  flex: 1;
+  max-height: 300px;
   overflow-y: auto;
-  padding: 5px;
-  font-size: 0.9em;
+  padding: 1rem;
 }
-
-.typing-indicator {
-  color: #aaa;
-  font-style: italic;
-  margin: 5px;
-}
-
 .chatbot-input {
   border: none;
-  padding: 10px;
-  border-radius: 10px;
-  margin-top: 5px;
-  font-size: 1em;
+  padding: 1rem;
+  font-size: 1rem;
+  width: 100%;
+}
+.typing-indicator {
+  padding: 0.5rem;
+  background: #444;
+  font-size: 0.85rem;
+  display: none;
 }
 
 /* Animations */
 @keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+/* Responsive */
+@media (max-width: 768px) {
+  .toy-image {
+    display: none;
+  }
+  .contact-actions {
+    flex-direction: column;
+  }
+  .chatbot {
+    width: 90%;
+    right: 5%;
+  }
 }
