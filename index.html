@@ -1,61 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shankar Raman CV</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shankar Raman | Interactive CV</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
+  <div class="header">
     <h1>Shankar Raman</h1>
-    <p>Talent Acquisition | GenAI Recruiter | Leadership Hiring | Career Strategist</p>
-  </header>
+    <p>Recruitment Leader | GenAI Enthusiast | Talent Architect</p>
+    <button id="download-cv">📄 Download CV</button>
+    <button id="whatsapp-btn">💬 WhatsApp Me</button>
+  </div>
 
-  <main>
-    <section id="profile">
-      <img src="hero-image.png" alt="Shankar Raman" class="hero-image">
-      <p>Email: <a href="mailto:fortunate.gui@gmail.com">fortunate.gui@gmail.com</a></p>
-    </section>
+  <div class="profile-spotlight">Tap to Explore</div>
+  <div class="mini-man">🧍‍♂️</div>
+  <div class="progress-container"><div class="progress"></div></div>
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="card">OpenText – Scaled hiring by 650+ people across tech and support in 12 months</div>
-      <div class="card">Target – $1,000 award for fast pipeline creation; designed 'BounceBack' for women returnees</div>
-      <div class="card">BrowserStack – Set up Buddy Program and drove hiring process effectiveness</div>
-      <div class="card">WNS – Led diversity hiring, improving representation to 40%</div>
-    </section>
+  <section class="ribbons">
+    <button class="ribbon-button" data-target="exp">Experience</button>
+    <div class="ribbon-detail" id="exp">
+      <h3>OpenText</h3>
+      <ul>
+        <li>Led a team of 15 to hire 1000+ across tech, services, sales</li>
+        <li>Increased referral contribution to 30%, alumni hiring to 20%</li>
+        <li>Hired leadership talent across engineering and GTM verticals</li>
+        <li>Implemented GenAI sourcing, reducing TAT by 40%</li>
+      </ul>
+      <h3>Target</h3>
+      <ul>
+        <li>Built BounceBack returnee program</li>
+        <li>Hired 500+ mid and leadership roles</li>
+      </ul>
+    </div>
 
-    <section id="expertise">
-      <h2>Expertise</h2>
-      <div class="expertise-box" data-target="genai">GenAI in Recruitment</div>
-      <div class="expertise-detail" data-target="genai">Automated screening, smart matching, offer predictions using AI tools.</div>
-      <div class="expertise-box" data-target="leadership">Leadership Hiring</div>
-      <div class="expertise-detail" data-target="leadership">Led CXO and Director-level hiring across APAC/India in large tech firms.</div>
-      <div class="expertise-box" data-target="projects">Special Projects</div>
-      <div class="expertise-detail" data-target="projects">Diversity drives, campus programs, referral blitzes, RPO & internal mobility design.</div>
-    </section>
+    <button class="ribbon-button" data-target="expertise">Expertise</button>
+    <div class="ribbon-detail" id="expertise">
+      <ul>
+        <li>Leadership Hiring & Team Structuring</li>
+        <li>GenAI for Talent Acquisition</li>
+        <li>Diversity & Inclusion Programs</li>
+        <li>Process Automation & ATS Optimization</li>
+      </ul>
+    </div>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <a href="https://wa.me/919620572345" target="_blank">📱 WhatsApp Me</a>
-      <br>
-      <a href="ShankarCV.pdf" download>📄 Download My CV</a>
-    </section>
-  </main>
+    <button class="ribbon-button" data-target="projects">Projects</button>
+    <div class="ribbon-detail" id="projects">
+      <ul>
+        <li>Referral 2.0 Campaign - 50% lift in pipeline</li>
+        <li>Buddy Program - Improved retention by 25%</li>
+        <li>DEI Hiring - 40% diversity at WNS</li>
+      </ul>
+    </div>
+  </section>
 
-  <!-- Chatbot Toggle with Avatar -->
   <div class="chatbot-toggle">
-    <img src="chat-avatar.png" alt="Chatbot" class="chatbot-avatar" />
-    <div class="chat-label">💬 Chat</div>
+    <img src="avatar.png" alt="Chatbot Icon" class="avatar-icon" />
+  </div>
+  <div class="chatbot" style="display:none;">
+    <div class="chatbot-messages"></div>
+    <div class="typing-indicator" style="display:none;">Typing...</div>
+    <input type="text" class="chatbot-input" placeholder="Ask about my work..." />
   </div>
 
-  <!-- Chatbot Window -->
-  <div class="chatbot">
-    <div class="chatbot-messages"></div>
-    <div class="typing-indicator" style="display: none;">Typing...</div>
-    <input type="text" class="chatbot-input" placeholder="Type your question..." />
-  </div>
+  <footer>
+    <p>© 2025 Shankar Raman | Email: <a href="mailto:fortunate.gui@gmail.com">fortunate.gui@gmail.com</a></p>
+  </footer>
+
+  <!-- Decorative background image -->
+  <img src="toy-image.png" class="background-art" alt="Toy Theme" />
 
   <script src="script.js"></script>
 </body>
