@@ -7,189 +7,64 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Navigation -->
-  <header class="navbar">
-    <nav>
-      <a href="#experience">Experience</a>
-      <a href="#expertise">Expertise</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
   <!-- Profile Section -->
-  <section class="profile" id="profile">
-    <img src="portrait.png" alt="Chatbot Avatar" class="chatbot-avatar" id="chatbot-toggle" />
+  <div class="profile">
+    <img src="images/chat-avatar.png" alt="Avatar" class="chatbot-avatar" />
     <div class="intro">
       <h1>Shankar Raman</h1>
-      <p>Senior Talent Leader | GenAI Enthusiast | Leadership Hiring Expert</p>
+      <p>Recruitment Leader | GenAI Hiring Expert | Storyteller</p>
     </div>
-    <img src="toy.png" alt="Toy Figure" class="toy-image" />
-  </section>
+    <img src="images/toy-avatar.png" alt="Toy Visual" class="toy-image" />
+  </div>
 
-  <!-- Experience Section -->
-  <section id="experience">
-    <h2>Experience</h2>
-
-    <div class="ribbon">
-      <button class="ribbon-toggle">OpenText (2023 – Present, Bangalore)</button>
-      <div class="ribbon-content">
-        <ul>
-          <li>Hired 1000+ across tech, services, sales</li>
-          <li>30% referrals, 20% alumni rehires</li>
-          <li>Leadership hiring across GTM & Engg</li>
-          <li>Reduced TAT by 20% using GenAI sourcing</li>
-        </ul>
-      </div>
+  <!-- Sections -->
+  <div class="section">
+    <button class="ribbon-toggle">Experience</button>
+    <div class="ribbon-content">
+      <ul>
+        <li><strong>OpenText (2023–Present)</strong> – Led a team of 15, hired 1000+ across tech/sales, implemented GenAI sourcing.</li>
+        <li><strong>Out of the Blue (2022–2023)</strong> – Head HR, remote-first culture setup, diversity and early talent hiring.</li>
+        <li><strong>BrowserStack (2022)</strong> – Recruited product leaders, built returnee strategy, senior women hiring.</li>
+        <li><strong>Target (2018–2022)</strong> – Built BounceBack returnee program, hired 200+ leaders, first Principal Woman Scientist.</li>
+        <li><strong>WNS (2014–2018)</strong> – Group Manager, led leadership and analytics hiring, 40% diversity ramp-up.</li>
+        <li><strong>Recruise (2010–2014)</strong> – Sr Lead Consultant, leadership and niche tech hiring.</li>
+      </ul>
     </div>
+  </div>
 
-    <div class="ribbon">
-      <button class="ribbon-toggle">Out of the Blue.AI (2022 – 2023, Remote)</button>
-      <div class="ribbon-content">
-        <ul>
-          <li>Head – HR for GenAI startup</li>
-          <li>Set up recruitment framework remotely</li>
-        </ul>
-      </div>
+  <div class="section">
+    <button class="ribbon-toggle">Expertise</button>
+    <div class="ribbon-content">
+      <ul>
+        <li>Leadership Hiring (Directors, Principals, VPs)</li>
+        <li>GenAI Sourcing (reduced TAT by 20%)</li>
+        <li>Team Mentorship & 9-Box Talent Reviews</li>
+        <li>Diversity Programs & Alumni Hiring</li>
+        <li>Campus & RPO Strategy</li>
+      </ul>
     </div>
+  </div>
 
-    <div class="ribbon">
-      <button class="ribbon-toggle">BrowserStack (2022, Remote)</button>
-      <div class="ribbon-content">
-        <ul>
-          <li>Closed product leadership roles</li>
-          <li>Improved offer engagement & diverse hiring</li>
-        </ul>
-      </div>
+  <div class="section">
+    <button class="ribbon-toggle">Testimonials</button>
+    <div class="ribbon-content testimonials">
+      <p><strong>Abhishek De:</strong> “Shankar took a data-driven approach. He hired senior product leaders and improved post-offer engagement.”</p>
+      <p><strong>Taraprasad Battha:</strong> “Electrifying recruiting partner. Profound problem-solver with a smile.”</p>
+      <p><strong>Hari C P:</strong> “Perseverance, grit, ideas — Shankar comes up with 100 solutions when you give him a problem.”</p>
+      <p><strong>Arindam Datta:</strong> “High energy, humble, and cracked tough data science roles through creative sourcing.”</p>
+      <p><strong>Kabita Paul:</strong> “Passionate, team-oriented, and dedicated — an asset to any org.”</p>
+      <p><strong>Sharmad Khare:</strong> “He stayed engaged even post recruitment. Great bridge between client and consultant.”</p>
     </div>
+  </div>
 
-    <div class="ribbon">
-      <button class="ribbon-toggle">Target (2019 – 2022, Bangalore)</button>
-      <div class="ribbon-content">
-        <ul>
-          <li>Lead Executive Recruiter</li>
-          <li>Built BounceBack returnee program</li>
-          <li>Hired diversity Principal Scientist</li>
-          <li>Set up Principal Engg/Data teams</li>
-        </ul>
-      </div>
-    </div>
+  <!-- Chatbot Icon (bottom-right floating) -->
+  <div class="chatbot-icon" id="chatbot-toggle" title="Ask ShankarBot">💬</div>
 
-    <div class="ribbon">
-      <button class="ribbon-toggle">WNS (2014 – 2018, Bangalore)</button>
-      <div class="ribbon-content">
-        <ul>
-          <li>Group Manager – Talent Acquisition</li>
-          <li>Led DEI hiring (40%)</li>
-          <li>Scaled niche hiring teams</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="ribbon">
-      <button class="ribbon-toggle">Recruise India (2010 – 2014, Bangalore)</button>
-      <div class="ribbon-content">
-        <ul>
-          <li>Sr. Lead Consultant</li>
-          <li>Analytics/product hiring across unicorns</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Expertise Section -->
-  <section id="expertise">
-    <h2>Expertise</h2>
-
-    <div class="ribbon">
-      <button class="ribbon-toggle">Leadership Hiring</button>
-      <div class="ribbon-content">
-        <ul>
-          <li>Set up C-suite & Principal Engg roles</li>
-          <li>Mentored teams, 9-box performance mapping</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="ribbon">
-      <button class="ribbon-toggle">GenAI & Sourcing Automation</button>
-      <div class="ribbon-content">
-        <ul>
-          <li>Used GenAI to reduce sourcing TAT by 20%</li>
-          <li>Trained recruiters on AI-assisted hiring</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="ribbon">
-      <button class="ribbon-toggle">Diversity & Inclusion</button>
-      <div class="ribbon-content">
-        <ul>
-          <li>Built DEI programs at WNS & Target</li>
-          <li>Hired first diversity Principal Scientist</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section id="testimonials">
-    <h2>Testimonials</h2>
-    <div class="testimonials-container">
-      <div class="testimonial">
-        “Achieved leadership closures and diversity goals.”  
-        <strong>Abhishek De</strong><br />
-        <small>CHRO, Browserstack</small>
-      </div>
-
-      <div class="testimonial">
-        “An electrifying recruiting partner.”  
-        <strong>Taraprasad Battha</strong><br />
-        <small>Recruitment Lead</small>
-      </div>
-
-      <div class="testimonial">
-        “Man of 100 solutions.”  
-        <strong>Hari C P</strong><br />
-        <small>TA Leader, Target</small>
-      </div>
-
-      <div class="testimonial">
-        “Creative sourcing for rare talent.”  
-        <strong>Arindam Datta</strong><br />
-        <small>GenAI Business Leader</small>
-      </div>
-
-      <div class="testimonial">
-        “Hard-working, quick learner & human first.”  
-        <strong>Kabita Paul</strong><br />
-        <small>TA Leader</small>
-      </div>
-
-      <div class="testimonial">
-        “Shankar guided me even after joining BT.”  
-        <strong>Sharmad Khare</strong><br />
-        <small>AI PM, British Telecom</small>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <div class="contact-actions">
-      <a href="https://wa.me/919620572345" class="btn whatsapp" target="_blank">Message on WhatsApp</a>
-      <a href="Shankar_Raman_CV.pdf" class="btn download" download>Download CV</a>
-      <a href="mailto:fortunate.gui@gmail.com" class="btn email">Email Me</a>
-    </div>
-  </section>
-
-  <!-- Chatbot (hidden by default) -->
+  <!-- Chatbot Window -->
   <div class="chatbot" id="chatbot">
     <div class="chatbot-messages"></div>
     <div class="typing-indicator">Typing...</div>
-    <input type="text" class="chatbot-input" placeholder="Ask me about my experience..." />
+    <input type="text" class="chatbot-input" placeholder="Ask something..." />
   </div>
 
   <script src="script.js"></script>
