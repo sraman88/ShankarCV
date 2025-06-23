@@ -1,60 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shankar Raman CV</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shankar Raman | CV</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Shankar Raman</h1>
-    <p>Talent Acquisition | GenAI Recruiter | Leadership Hiring | Career Strategist</p>
-  </header>
+  <!-- Tap to Start -->
+  <div class="profile-spotlight">🎯 Tap to begin your journey!</div>
 
-  <main>
-    <section id="profile">
-      <img src="hero-image.png" alt="Shankar Raman" class="hero-image">
-      <p>Email: <a href="mailto:fortunate.gui@gmail.com">fortunate.gui@gmail.com</a></p>
-    </section>
+  <!-- Experience Section -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="card active">OpenText – Scaled hiring by 650+ in 12 months across tech, services & sales. Built hiring strategy, referral scale-up, 25% acceleration in offers.</div>
+    <div class="card">Target – Led BounceBack (outreach + hiring for women returnees), received $1000 award for pipeline acceleration, delivered high-touch leadership hiring.</div>
+    <div class="card">BrowserStack – Built referral and Buddy hiring program, streamlined hiring ops, supported 4x hiring growth across India + US.</div>
+    <div class="card">WNS – Managed a 40% diversity initiative, scaled RPO model, delivered niche analytics & tech hiring across teams globally.</div>
+    <div class="card">Recruise India – Delivered end-to-end leadership hiring across India for clients like Dell, Mindtree, HSBC.</div>
+  </section>
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="card">OpenText – Scaled hiring by 650+ people across tech and support in 12 months</div>
-      <div class="card">Target – $1,000 award for fast pipeline creation; designed 'BounceBack' for women returnees</div>
-      <div class="card">BrowserStack – Set up Buddy Program and drove hiring process effectiveness</div>
-      <div class="card">WNS – Led diversity hiring, improving representation to 40%</div>
-    </section>
+  <!-- Expertise Section -->
+  <section id="expertise">
+    <h2>Expertise</h2>
+    <div class="expertise-box" data-target="genai">GenAI Hiring</div>
+    <div class="expertise-detail" data-target="genai">Implemented GenAI for intelligent sourcing, screening, interview scoring & offer prediction. Reduced screening time by 40%.</div>
 
-    <section id="expertise">
-      <h2>Expertise</h2>
-      <div class="expertise-box" data-target="genai">GenAI in Recruitment</div>
-      <div class="expertise-detail" data-target="genai">Automated screening, smart matching, offer predictions using AI tools.</div>
-      <div class="expertise-box" data-target="leadership">Leadership Hiring</div>
-      <div class="expertise-detail" data-target="leadership">Led CXO and Director-level hiring across APAC/India in large tech firms.</div>
-      <div class="expertise-box" data-target="projects">Special Projects</div>
-      <div class="expertise-detail" data-target="projects">Diversity drives, campus programs, referral blitzes, RPO & internal mobility design.</div>
-    </section>
+    <div class="expertise-box" data-target="leadership">Leadership Hiring</div>
+    <div class="expertise-detail" data-target="leadership">Delivered CXO to Director hiring across OpenText, Target, BrowserStack. Strategic engagement with business heads.</div>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <a href="https://wa.me/919620572345" target="_blank">📱 WhatsApp Me</a>
-      <br>
-      <a href="ShankarCV.pdf" download>📄 Download My CV</a>
-    </section>
-  </main>
+    <div class="expertise-box" data-target="projects">Special Projects</div>
+    <div class="expertise-detail" data-target="projects">Key projects include: BounceBack (women returnees), Buddy program, Referral 2.0, DEI dashboards, Campus hiring (200+), RPO enablement.</div>
+
+    <div class="expertise-box" data-target="tools">ATS & Tools</div>
+    <div class="expertise-detail" data-target="tools">Hands-on with Phenom, SuccessFactors, Zoho Recruit, DarwinBox, O365 workflows, Excel/Sheets automation.</div>
+
+    <div class="expertise-box" data-target="training">Team Management & Training</div>
+    <div class="expertise-detail" data-target="training">Managed teams of 6–20 recruiters. Mentored, trained on interview calibration, sourcing, GenAI tools, and DEI hiring.</div>
+  </section>
+
+  <!-- Visual Progress Bar -->
+  <div class="progress-container">
+    <div class="progress"></div>
+  </div>
+
+  <!-- Mini-man progress tracker -->
+  <div class="mini-man">🧍‍♂️</div>
 
   <!-- Chatbot Toggle with Avatar -->
   <div class="chatbot-toggle">
-    <img src="chat-avatar.png" alt="Chatbot" class="chatbot-avatar" />
+    <img src="chat-avatar.png" alt="Chatbot Avatar" class="chatbot-avatar" />
     <div class="chat-label">💬 Chat</div>
   </div>
 
-  <!-- Chatbot Window -->
-  <div class="chatbot">
+  <!-- Chatbot Box -->
+  <div class="chatbot" style="display:none;">
     <div class="chatbot-messages"></div>
-    <div class="typing-indicator" style="display: none;">Typing...</div>
-    <input type="text" class="chatbot-input" placeholder="Type your question..." />
+    <div class="typing-indicator" style="display:none;">Typing...</div>
+    <input type="text" class="chatbot-input" placeholder="Ask about Shankar..." />
   </div>
 
   <script src="script.js"></script>
