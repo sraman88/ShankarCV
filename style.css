@@ -200,7 +200,7 @@ h2 {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .toy-image {
+  .toy-avatar {
     display: none;
   }
   .contact-actions {
