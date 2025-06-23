@@ -1,56 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const expertiseBoxes = document.querySelectorAll('.expertise-box');
     const chatbotToggle = document.querySelector('.chatbot-toggle');
     const chatbot = document.querySelector('.chatbot');
     const chatInput = document.querySelector('.chatbot-input');
     const messages = document.querySelector('.chatbot-messages');
-    const typing = document.querySelector('.typing-indicator');
+    const typingIndicator = document.querySelector('.typing-indicator');
 
-    // Toggle expertise details
-    expertiseBoxes.forEach(box => {
-        box.addEventListener('click', () => {
-            const target = box.getAttribute('data-target');
-            const detail = document.querySelector(`.expertise-detail[data-target="${target}"]`);
-            const isActive = detail.style.display === 'block';
-            detail.style.display = isActive ? 'none' : 'block';
-            box.classList.toggle('active');
-        });
-    });
-
-    // Toggle chatbot
     chatbotToggle.addEventListener('click', () => {
-        chatbot.style.display = chatbot.style.display === 'none' ? 'flex' : 'none';
+        chatbot.style.display = chatbot.style.display === 'none' || chatbot.style.display === '' ? 'flex' : 'none';
     });
 
-    // Simple GenAI-style bot responses
-    function getBotResponse(query) {
-        const q = query.toLowerCase();
-        if (q.includes("genai")) return "I implemented Phenom, automated resume parsing & trained recruiters on GenAI!";
-        if (q.includes("leadership")) return "Hired for OpenText, Target & WNS – building executive teams from scratch.";
-        if (q.includes("diversity")) return "I led programs like BounceBack, driving 40% diversity hiring at WNS.";
-        if (q.includes("projects")) return "I've run RPOs, built referral engines, and drove 30% cost savings in TA.";
-        return "Ask me about GenAI, Leadership, Diversity, or Projects!";
-    }
-
-    // Handle user messages
     chatInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter' && chatInput.value.trim()) {
             const userMsg = chatInput.value.trim();
-            appendMessage('user', userMsg);
+            addMessage('user', userMsg);
             chatInput.value = '';
-            typing.style.display = 'flex';
+            typingIndicator.style.display = 'flex';
+
             setTimeout(() => {
-                appendMessage('bot', getBotResponse(userMsg));
-                typing.style.display = 'none';
-            }, 600);
+                const botReply = getBotResponse(userMsg);
+                addMessage('bot', botReply);
+                typingIndicator.style.display = 'none';
+            }, 700);
         }
     });
 
-    function appendMessage(type, text) {
-        const msg = document.createElement('div');
-        msg.className = `message ${type}`;
-        msg.textContent = text;
-        messages.appendChild(msg);
+    function addMessage(type, text) {
+        const message = document.createElement('div');
+        message.className = `message ${type}`;
+        message.textContent = text;
+        messages.appendChild(message);
         messages.scrollTop = messages.scrollHeight;
+    }
+
+    function getBotResponse(query) {
+        const responses = {
+            "hello": "Hi there! I'm here to help you learn about Shankar.",
+            "who is shankar": "Shankar Raman is a TA pro with 15 years of experience, currently at OpenText.",
+            "genai": "Shankar integrates GenAI into hiring—automating screening, reducing time-to-hire.",
+            "leadership hiring": "He led leadership hiring at Target and OpenText. Ask me more!",
+            "awards": "He received a $1,000 award for accelerating hiring by 25% at OpenText.",
+            "default": "Try asking: 'Who is Shankar?', 'GenAI expertise', or 'Awards'."
+        };
+
+        query = query.toLowerCase();
+        return responses[query] || responses["default"];
     }
 });
